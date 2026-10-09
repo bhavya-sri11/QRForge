@@ -1,0 +1,58 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: minmax(300px, 340px) minmax(0, 1fr) minmax(320px, 380px);
+  grid-template-areas: 'content preview design';
+  gap: var(--gutter);
+  padding: var(--gutter);
+  height: calc(100dvh - var(--nav-h));
+  min-height: 0;
+}
+
+.workspace > :nth-child(1) {
+  grid-area: content;
+}
+
+.workspace > :nth-child(2) {
+  grid-area: preview;
+}
+
+.workspace > :nth-child(3) {
+  grid-area: design;
+}
+
+/* Desktop: each panel scrolls on its own so the code never leaves the screen */
+@media (min-width: 1100px) {
+  .workspace > * {
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+}
+
+@media (max-width: 1099px) {
+  .workspace {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+      'preview preview'
+      'content design';
+    align-items: start;
+    height: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .workspace {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      'preview'
+      'content'
+      'design';
+    gap: 12px;
+    padding: 12px;
+  }
+}

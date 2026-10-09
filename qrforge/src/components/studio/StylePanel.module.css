@@ -1,0 +1,16 @@
+.columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.groupMeta {
+  font-size: var(--text-xs);
+  color: var(--text-3);
+}
+
+@media (max-width: 360px) {
+  .columns {
+    grid-template-columns: 1fr;
+  }
+}

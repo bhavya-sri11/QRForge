@@ -1,0 +1,110 @@
+.slider {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.labelRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.label {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text-2);
+}
+
+.value {
+  font-size: var(--text-sm);
+  color: var(--text-1);
+  font-variant-numeric: tabular-nums;
+}
+
+.input {
+  --track-h: 4px;
+  --thumb: 18px;
+  appearance: none;
+  width: 100%;
+  height: 24px;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.input::-webkit-slider-runnable-track {
+  height: var(--track-h);
+  border-radius: var(--radius-pill);
+  background: linear-gradient(to right, var(--accent) var(--percent), var(--bg-4) var(--percent));
+}
+
+.input::-moz-range-track {
+  height: var(--track-h);
+  border-radius: var(--radius-pill);
+  background: var(--bg-4);
+}
+
+.input::-moz-range-progress {
+  height: var(--track-h);
+  border-radius: var(--radius-pill);
+  background: var(--accent);
+}
+
+.input::-webkit-slider-thumb {
+  appearance: none;
+  width: var(--thumb);
+  height: var(--thumb);
+  margin-top: calc((var(--track-h) - var(--thumb)) / 2);
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow-1);
+  transition: transform var(--dur-fast) var(--ease);
+}
+
+.input::-moz-range-thumb {
+  width: var(--thumb);
+  height: var(--thumb);
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow-1);
+}
+
+.input:hover::-webkit-slider-thumb,
+.input:active::-webkit-slider-thumb {
+  transform: scale(1.1);
+}
+
+.input:focus-visible {
+  box-shadow: none;
+}
+
+.input:focus-visible::-webkit-slider-thumb {
+  box-shadow: var(--focus-ring);
+}
+
+.input:focus-visible::-moz-range-thumb {
+  box-shadow: var(--focus-ring);
+}
+
+.hint {
+  font-size: var(--text-xs);
+  line-height: 1.45;
+  color: var(--text-3);
+}
+
+@media (pointer: coarse) {
+  .input {
+    height: 32px;
+    --thumb: 22px;
+  }
+}

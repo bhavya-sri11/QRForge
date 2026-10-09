@@ -1,0 +1,88 @@
+.bar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  height: var(--nav-h);
+  padding: 0 var(--gutter);
+  background: rgba(10, 12, 16, 0.85);
+  border-bottom: 1px solid var(--border-1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.wordmark {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: var(--text-lg);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text-1);
+}
+
+.product {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text-3);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.privacy {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--text-xs);
+  color: var(--text-3);
+}
+
+.privacy > svg {
+  color: var(--success);
+}
+
+.reset {
+  color: var(--text-2);
+}
+
+@media (max-width: 1099px) {
+  .bar {
+    position: static;
+  }
+}
+
+@media (max-width: 767px) {
+  .privacy {
+    display: none;
+  }
+
+  .product {
+    display: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .resetLabel {
+    display: none;
+  }
+
+  .reset {
+    width: var(--control-h-sm);
+    padding: 0;
+    gap: 0;
+  }
+}

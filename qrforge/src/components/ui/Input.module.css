@@ -1,0 +1,77 @@
+.control {
+  width: 100%;
+  min-height: var(--control-h);
+  padding: 8px 12px;
+  background: var(--bg-2);
+  border: 1px solid var(--border-2);
+  border-radius: var(--radius-sm);
+  color: var(--text-1);
+  font-size: var(--text-md);
+  line-height: 1.4;
+  transition:
+    border-color var(--dur-fast) var(--ease),
+    background-color var(--dur-fast) var(--ease);
+}
+
+.control::placeholder {
+  color: var(--text-placeholder);
+}
+
+.control:hover:not(:disabled) {
+  border-color: var(--border-3);
+}
+
+.control:focus-visible {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft-strong);
+  border-radius: var(--radius-sm);
+}
+
+.control[aria-invalid='true'] {
+  border-color: var(--danger);
+}
+
+.control[aria-invalid='true']:focus-visible {
+  box-shadow: 0 0 0 3px var(--danger-soft);
+}
+
+.control:disabled {
+  opacity: 0.5;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 96px;
+}
+
+.selectWrap {
+  position: relative;
+  display: block;
+}
+
+.select {
+  appearance: none;
+  padding-right: 36px;
+  cursor: pointer;
+}
+
+.selectIcon {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  color: var(--text-3);
+  pointer-events: none;
+}
+
+@media (pointer: coarse) {
+  .control {
+    min-height: var(--tap-h);
+    font-size: 16px; /* prevents iOS zoom on focus */
+  }
+}

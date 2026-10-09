@@ -1,0 +1,47 @@
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.inlineAction {
+  position: relative;
+}
+
+.inlineAction > input {
+  padding-right: 44px;
+}
+
+.inlineButton {
+  position: absolute;
+  top: 50%;
+  right: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-xs);
+  background: transparent;
+  color: var(--text-3);
+  transform: translateY(-50%);
+}
+
+.inlineButton:hover {
+  background: var(--bg-3);
+  color: var(--text-1);
+}
+
+@media (max-width: 360px) {
+  .columns {
+    grid-template-columns: 1fr;
+  }
+}
